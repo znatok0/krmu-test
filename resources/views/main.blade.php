@@ -10,8 +10,15 @@
         <td><input type='text' name='email' /></td>
         <td>ИИН</td>
         <td><input type='text' name='iin' /></td>
-        <input type="hidden" name="resID" value="113227">
-        <input type="hidden" name="menuItemID" value="118118">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <table border="1">
             <tr><td align="center">N вопроса</td><td colspan="2" align="center">Варианты ответов</td></tr>
             <tr><td colspan="3" align="center" class="oddTableRow">Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?</td></tr>
@@ -196,7 +203,12 @@
                 <td>Работать на клавишных машинах (пишущей машинке, телетайпе, наборной машине и др.)</td>
             </tr>
             <tr><td colspan="3" align="center"><button onclick="sendResult()">Отправить</button></td></tr>
+                <script>
+                    var txt = document.getElementById('result-text');
+                    alert(txt.innerHTML);
+                </script>
         </table>
+        <p id="result-text"></p>
     </form></center>
     </body>
     </html>

@@ -60,7 +60,7 @@ function sendResult(){
     if(eleven_a.checked){
         hn++;
     }
-    if(thirteen_a.checked){
+    if(thirteen_b.checked){
         hn++;
     }
     if(sixteen_a.checked){
@@ -170,5 +170,8 @@ function sendResult(){
     result.push(ha);
     result.push(hs);
     result.push(ht);
-    alert(result);
+    alert(result.toStringx1);
+    var result_field = document.getElementById('result-text');
+    result_field.innerHTML = result.toString;
+    
 }
